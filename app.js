@@ -61,7 +61,6 @@ function gerarCPF() {
     await page.type('#celular', '222222222');
 
     await page.click('input[name="Submit"]');
-    await page.screenshot({ path: 'example.png' });
     const query = "CLIQUE AQUI";
 
     page.evaluate(query => {
@@ -77,7 +76,7 @@ function gerarCPF() {
     await page.waitForSelector('select[name="f2"]');
     await page.select('select[name="f2"]', '14');
     await page.click('input[name="Submit"]');
-    
+
     await page.waitForSelector('select[name="f3"]');
     await page.select('select[name="f3"]', '13');
     await page.click('input[name="Submit"]');
@@ -93,9 +92,7 @@ function gerarCPF() {
     await page.waitForSelector('select[name="f6"]');
     await page.select('select[name="f6"]', '6');
     await page.click('input[name="Submit"]');
-         
 
-    /*  console.log('Rainfall Submitted!'); */
-
-    //  await browser.close();
+    await page.screenshot({ path: 'example.png' });
+    await browser.close();
 })();
