@@ -43,13 +43,13 @@ function gerarCPF() {
 (async () => {
     const browser = await puppeteer.launch({ headless: false });
     const page = await browser.newPage();
-    await page.goto('SITE AQui');
+    await page.goto('http://www.arduinobrasil.cc/univag/challenge2019/votacaopublicologin.asp');
 
     await page.type('#cpf', gerarCPF())
 
     await Promise.all([
         page.waitForNavigation(), // The promise resolves after navigation has finished
-        page.click('input[type="image"][name="Submit"]') // Clicking the link will indirectly cause a navigation
+        page.click('input[name="Submit"]') // Clicking the link will indirectly cause a navigation
     ]);
 
     const rainInput = await page.$('#fcadastro1')
@@ -60,7 +60,7 @@ function gerarCPF() {
     await page.type('#email', 'TESTE2@TESTE2.COM');
     await page.type('#celular', '222222222');
 
-    await page.click('input[type="image"][name="Submit"]');
+    await page.click('input[name="Submit"]');
     await page.screenshot({ path: 'example.png' });
     const query = "CLIQUE AQUI";
 
@@ -71,58 +71,10 @@ function gerarCPF() {
     }, query)
 
     const selectElem = await page.$('select[name="f1"]');
-    await selectElem.type('5');
-    await page.click('input[type="image"][name="Submit"]');
+    await selectElem.type('SISTEMA DE IRRIGAÇÃO (Happy Code)');
+    await page.click('input[name="Submit"]');
 
-    page.evaluate(query => {
-        const elements = [...document.querySelectorAll('a')];
-        const targetElement = elements.find(e => e.innerText.includes(query));
-        targetElement && targetElement.click();
-    }, query)
 
-    const selectElem = await page.$('select[name="f1"]');
-    await selectElem.type('5');
-    await page.click('input[type="image"][name="Submit"]');
-
-    page.evaluate(query => {
-        const elements = [...document.querySelectorAll('a')];
-        const targetElement = elements.find(e => e.innerText.includes(query));
-        targetElement && targetElement.click();
-    }, query)
-
-    const selectElem = await page.$('select[name="f1"]');
-    await selectElem.type('5');
-    await page.click('input[type="image"][name="Submit"]');
-
-    page.evaluate(query => {
-        const elements = [...document.querySelectorAll('a')];
-        const targetElement = elements.find(e => e.innerText.includes(query));
-        targetElement && targetElement.click();
-    }, query)
-
-    const selectElem = await page.$('select[name="f1"]');
-    await selectElem.type('5');
-    await page.click('input[type="image"][name="Submit"]');
-
-    page.evaluate(query => {
-        const elements = [...document.querySelectorAll('a')];
-        const targetElement = elements.find(e => e.innerText.includes(query));
-        targetElement && targetElement.click();
-    }, query)
-
-    const selectElem = await page.$('select[name="f1"]');
-    await selectElem.type('5');
-    await page.click('input[type="image"][name="Submit"]');
-
-    page.evaluate(query => {
-        const elements = [...document.querySelectorAll('a')];
-        const targetElement = elements.find(e => e.innerText.includes(query));
-        targetElement && targetElement.click();
-    }, query)
-
-    const selectElem = await page.$('select[name="f1"]');
-    await selectElem.type('5');
-    await page.click('input[type="image"][name="Submit"]');
     /*  console.log('Rainfall Submitted!'); */
 
     //  await browser.close();
