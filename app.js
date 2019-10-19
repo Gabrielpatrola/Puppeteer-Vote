@@ -81,6 +81,18 @@ function gerarCPF() {
     await page.waitForSelector('select[name="f3"]');
     await page.select('select[name="f3"]', '13');
     await page.click('input[name="Submit"]');
+
+    await page.waitForSelector('select[name="f4"]');
+    await page.select('select[name="f4"]', '22');
+    await page.click('input[name="Submit"]');
+
+    await page.waitForSelector('select[name="f5"]');
+    await page.select('select[name="f5"]', '2');
+    await page.click('input[name="Submit"]');
+
+    await page.waitForSelector('select[name="f6"]');
+    await page.select('select[name="f6"]', '6');
+    await page.click('input[name="Submit"]');
          
 
     /*  console.log('Rainfall Submitted!'); */
