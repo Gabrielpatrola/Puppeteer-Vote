@@ -70,10 +70,18 @@ function gerarCPF() {
         targetElement && targetElement.click();
     }, query)
 
-    const selectElem = await page.$('select[name="f1"]');
-    await selectElem.type('SISTEMA DE IRRIGAÇÃO (Happy Code)');
+    await page.waitForSelector('select[name="f1"]');
+    await page.select('select[name="f1"]', '5');
     await page.click('input[name="Submit"]');
 
+    await page.waitForSelector('select[name="f2"]');
+    await page.select('select[name="f2"]', '14');
+    await page.click('input[name="Submit"]');
+    
+    await page.waitForSelector('select[name="f3"]');
+    await page.select('select[name="f3"]', '13');
+    await page.click('input[name="Submit"]');
+         
 
     /*  console.log('Rainfall Submitted!'); */
 
