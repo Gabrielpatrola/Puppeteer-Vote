@@ -43,7 +43,7 @@ function gerarCPF() {
 (async () => {
     const browser = await puppeteer.launch({ headless: false });
     const page = await browser.newPage();
-    await page.goto('http://www.arduinobrasil.cc/univag/challenge2019/votacaopublicologin.asp');
+    await page.goto('#');
 
     await page.type('#cpf', gerarCPF())
 
